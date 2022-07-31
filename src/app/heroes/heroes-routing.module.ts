@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 //import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,13 +8,19 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
 
 const routes: Routes = [
-  { path: 'listado', component: ListadoComponent },
-  { path: 'agregar', component: AgregarComponent },
-  { path: 'editar/:id', component: AgregarComponent },
-  { path: 'buscar', component: BuscarComponent },
-  { path: ':id', component: HeroeComponent },
-  { path: '**', redirectTo: 'listado' }
-]
+  {
+    path: '',
+    component:HomeComponent,
+    children: [
+      { path: 'listado', component: ListadoComponent },
+      { path: 'agregar', component: AgregarComponent },
+      { path: 'editar/:id', component: AgregarComponent },
+      { path: 'buscar', component: BuscarComponent },
+      { path: ':id', component: HeroeComponent },
+      { path: '**', redirectTo: 'listado' }
+    ]
+  }
+];
 
 @NgModule({
   declarations: [],
@@ -21,7 +28,7 @@ const routes: Routes = [
     //CommonModule,
     RouterModule.forChild(routes)
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })
