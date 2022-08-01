@@ -12,11 +12,13 @@
 
 <!--Con esto ponemos todas las tarjetas en una sola fila-->
 <!--wrap: le dice que si las tarejtas no cavben que pase a la sigueinte linea-->
-<div fxLayout="row wrap">
+<div fxLayout="row wrap"
+fxLayout.xs="column"
+fxLayoutAlign="center" fxLayoutGap="20px">
 <!--fxFlex="20" con esto le decimos que cada tarjeta tiene el 20% del row-->
-  <div fxFlex="20">
+  <div fxFlex="20" fxFlex.lg ="15" fxFlex.sm="30" *ngFor="let heroe of heroes">
 <!--Tarjeta-->
-    <mat-card *ngFor="let heroe of heroes">
+    <mat-card>
       <mat-card-header>
         <!--Titulo-->
         <mat-card-title>
@@ -58,7 +60,7 @@
       </mat-card-actions>
 
     </mat-card>
-    
+
   </div>
 </div>
 
